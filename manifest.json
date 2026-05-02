@@ -2,21 +2,13 @@
   "name": "LeBaseball",
   "short_name": "LeBaseball",
   "description": "Fantasy Baseball 2026 League",
-  "start_url": "/Fantasy-Baseball-2026/",
+  "start_url": "/Fantasy-baseball-app/",
   "display": "standalone",
-  "background_color": "#0a0f1c",
-  "theme_color": "#d32f2f",
+  "background_color": "#0d1b2a",
+  "theme_color": "#c62828",
   "orientation": "portrait-primary",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }

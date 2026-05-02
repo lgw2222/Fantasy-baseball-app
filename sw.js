@@ -1,16 +1,20 @@
-const CACHE = 'lebaseball-v1';
+const CACHE = 'lebaseball-v3';
 const ASSETS = [
-  '/Fantasy-Baseball-2026/',
-  '/Fantasy-Baseball-2026/index.html',
-  'https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js'
+  '/Fantasy-baseball-app/',
+  '/Fantasy-baseball-app/index.html'
 ];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+  self.skipWaiting();
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS).catch(()=>{})));
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(caches.keys().then(keys =>
+    Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+  ));
 });
 
 self.addEventListener('fetch', e => {
-  e.respondWith(
-    fetch(e.request).catch(() => caches.match(e.request))
-  );
+  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
 });
